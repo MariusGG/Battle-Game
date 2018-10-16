@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Battle</title>
+    <link rel="stylesheet" type="text/css" href="main.css"/>
+  </head>
+
+  <body>
+    <div class="content">
+      <h1>Enter player names to begin the battle!</h1><br>
+
+      <form action="/names" method="post">
+        <fieldset>
+
+        <legend>Enter Player name:</legend>
+
+          <label for="player1">player 1 name</label><br/>
+          <input type="text" name="player_1_name"><br/><br/>
+          <label for="player2">player 2 name</label><br/>
+          <input type="text" name="player_2_name">
+          <input type="submit" value="Submit">
+
+      </fieldset>
+      </form>
+    </div>
+
+  </body>
+
+</html>
