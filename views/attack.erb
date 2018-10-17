@@ -9,10 +9,14 @@
 
   <body>
     <div class="content">
+      
+      <form class="screen1"action="/names" method="post">
+        <fieldset class="screen2">
 
-      <h2><%= @game.player1.name %> attacked <%= @game.player2.name %> [HP = <%= @game.player2.hp %> ]</h2>
-      <input class="attack" type="submit" value="Attack">
-
+          <h2><%= @game.player1.name %> attacked <%= @game.player2.name %> [HP: = <%= @game.player2.hp %> ]</h2>
+          <a href="/attack"><button>Attack</button></a>
+        </fieldset>
+      </form>
 
     </div>
   </body>

@@ -7,21 +7,22 @@
   </head>
 
   <body>
+    <h1 class="start">Enter player names to begin the battle!</h1><br>
     <div class="content">
-      <h1>Enter player names to begin the battle!</h1><br>
 
-      <form action="/names" method="post">
-        <fieldset>
+      <form class="screen1"action="/names" method="post">
+        <fieldset class="screen2">
 
-        <legend>Enter Player name:</legend>
-          <img class="charatcters" src="./mario.png" alt="player1 charatcter">
-          <label for="player1">player 1 name</label><br/>
-          <input type="text" name="player1"><br/><br/>
 
-          <img class="charatcters" src="./luigi.png" alt="player2 charatcter">
-          <label for="player2">player 2 name</label><br/>
-          <input type="text" name="player2"><br/><br/>
+          <img class="charatcters" src="./mario.png" alt="player1 charatcter"><br/>
+          <label for="player1">player1 name:</label><br/>
+          <input type="text" name="player1_name"><br/><br/>
+
+          <img class="charatcters" src="./luigi.png" alt="player2 charatcter"><br/>
+          <label for="player2">player2 name:</label><br/>
+          <input type="text" name="player2_name"><br/>
           <input class="submit_players" type="submit" value="Submit Players">
+
 
       </fieldset>
       </form>
