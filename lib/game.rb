@@ -11,5 +11,4 @@ class Game
     opposition.damage_point
   end
 
-
 end

@@ -17,15 +17,12 @@ feature "Attacking player2" do
   scenario "when I attack I get confirmation of the attack" do
     sign_in_and_play
     click_button('Attack')
-    expect(page).to have_content "Player2s HP = 90"
+    expect(page).to have_content "Player1 attacked Player2"
   end
-end
 
-feature "Switching turns" do
   scenario "after player1 attacks player2, player2 can attack" do
     sign_in_and_play
-    2.times { click_button('Attack') }
-    expect(page).to have_content "Name1's turn: make a move"
-    expect(page).to have_content "Player1s HP = 50"
+    click_button('Attack')
+    expect(page).to have_content "HP = 80"
   end
 end
