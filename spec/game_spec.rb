@@ -9,13 +9,13 @@ describe Game do
 
     describe "#get_player1_name" do
       it "returns player1 name" do
-        expect(game.player1.to eq player1
+        expect(game.player1).to eq player1
       end
     end
 
     describe "#get_player2_name" do
       it "returns player2 name" do
-        expect(game.player2.to eq player2
+        expect(game.player2).to eq player2
       end
     end
 

@@ -9,12 +9,12 @@
   </head>
 
   <body>
-    <div class="content" style="max-width: 500px;margin: auto;background: #DCDCDC;padding: 10px;">
+    <div class="content" >
       <main>
-        <h2style="font-family: Sans-serif, Times, serif;"><%= @game.player1.name %> vs. <%= @game.player2.name %> [ HP = <%= @game.player2.hp %> ]</h2>
+        <h2><%= @game.player1.name %> vs. <%= @game.player2.name %> [ HP = <%= @game.player2.hp %> ]</h2>
       </main>
       <aside>
-        <a href="/attack"><button>Attack</button></a>
+        <input class="attack" type="submit" value="Attack">
       </aside>
 
     </div>

@@ -6,7 +6,7 @@ describe Player do
   subject(:player2) { Player.new('Jim') }
 
   describe '#name' do
-    it 'returns players name' do
+    it 'returns player name' do
       expect(player1.name).to eq 'Rosie'
     end
   end
@@ -19,7 +19,6 @@ describe Player do
 
   describe '#take_damage' do
     it 'deduct 20 from hp' do
-      subject.damage_point
       expect { player2.damage_point}.to change { player2.hp }.by -20
     end
   end

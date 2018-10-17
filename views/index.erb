@@ -3,24 +3,25 @@
   <head>
     <meta charset="utf-8">
     <title>Battle</title>
-    <link href="main.css" type="text/css" rel="stylesheet">
+    <link href="./main.css" type="text/css" rel="stylesheet">
   </head>
 
   <body>
-    <div class="content" style="max-width: 500px;margin: auto;background: #DCDCDC;padding: 10px;">
-      <h1 style="font-family: Sans-serif, Times, serif; text-align: center;">Enter player names to begin the battle!</h1><br>
+    <div class="content">
+      <h1>Enter player names to begin the battle!</h1><br>
 
       <form action="/names" method="post">
         <fieldset>
 
-        <legend style="background-color: #156400;color: #fff;padding: 10px 15px;">Enter Player name:</legend>
-          <!-- <img src="./images/mario.png" alt="player1 charatcter"> -->
+        <legend>Enter Player name:</legend>
+          <img class="charatcters" src="./mario.png" alt="player1 charatcter">
           <label for="player1">player 1 name</label><br/>
           <input type="text" name="player1"><br/><br/>
-          <!-- <img src="luigi.pn" alt="player2 charatcter"> -->
+
+          <img class="charatcters" src="./luigi.png" alt="player2 charatcter">
           <label for="player2">player 2 name</label><br/>
-          <input type="text" name="player2">
-          <input type="submit" value="Submit">
+          <input type="text" name="player2"><br/><br/>
+          <input class="submit_players" type="submit" value="Submit Players">
 
       </fieldset>
       </form>

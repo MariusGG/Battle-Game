@@ -1,0 +1,40 @@
+body {
+    font-size: 100%;
+    font-family: Sans-serif, Times, serif; text-align: center;
+}
+
+.content {
+    max-width: 500px;
+    height: 491px;
+    margin: auto;
+    background: #ccc;
+    padding: 10px;
+}
+
+h1 {
+  color: #156400;
+  margin-left: 5px;
+}
+
+legend {
+    background-color: #156400;
+    color: #fff;
+    padding: 10px 15px;
+    font-weight: 600;
+}
+
+.charatcters {
+  height: 100px;
+    width: 20%;
+}
+
+.submit_players {
+  margin-left: 200px
+}
+
+.attack {
+  background-color: #FE9001;
+  color: #fff;
+  padding: 4px 8px;
+  font-weight: 300;
+}

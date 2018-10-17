@@ -8,9 +8,11 @@
   </head>
 
   <body>
-    <div class="content" style="max-width: 500px;margin: auto;background: #DCDCDC;padding: 10px;">
+    <div class="content">
 
       <h2><%= @game.player1.name %> attacked <%= @game.player2.name %> [HP = <%= @game.player2.hp %> ]</h2>
+      <input class="attack" type="submit" value="Attack">
+
 
     </div>
   </body>
