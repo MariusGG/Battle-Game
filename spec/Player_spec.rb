@@ -20,7 +20,7 @@ describe Player do
   describe '#take_damage' do
     it 'deduct 10 from hp' do
       subject.damage_point
-      expect(jim.hp).to eq 50
+      expect(jim.hp).to eq 80
     end
   end
 
