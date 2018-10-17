@@ -17,7 +17,7 @@ feature "Attacking player2" do
   scenario "when I attack I get confirmation of the attack" do
     sign_in_and_play
     click_button('Attack')
-    expect(page).to have_content "Player2s HP = 50"
+    expect(page).to have_content "Player2s HP = 90"
   end
 end
 

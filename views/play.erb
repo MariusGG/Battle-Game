@@ -1,21 +1,17 @@
 <!DOCTYPE html>
 
 <html lang="en">
-
   <head>
-
-    <!-- defining our character set and title -->
 
     <meta charset="utf-8">
 
     <title>Play Battle</title>
+    <link href="/styles/main.css" type="text/css" rel="stylesheet">
 
   </head>
-
   <body>
 
-    <!-- all the rest of user view -->
-
+    <div class="content">
     <h1>Battle: <%= $game.player_name(1) %> vs <%= $game.player_name(2) %></h1>
 
     <p><%= $game.player_name($game.current_player) %>'s turn: make a move!</p>
@@ -39,7 +35,7 @@
       </div>
 
     </form>
+  </div>
 
   </body>
-
 </html>
