@@ -1,3 +1,45 @@
-<%= @player_1 %> vs. <%= @player_2 %>
+<!DOCTYPE html>
 
-<%= @player_2 %>: 60HP
+<html lang="en">
+
+  <head>
+
+    <!-- defining our character set and title -->
+
+    <meta charset="utf-8">
+
+    <title>Play Battle</title>
+
+  </head>
+
+  <body>
+
+    <!-- all the rest of user view -->
+
+    <h1>Battle: <%= $game.player_name(1) %> vs <%= $game.player_name(2) %></h1>
+
+    <p><%= $game.player_name($game.current_player) %>'s turn: make a move!</p>
+
+    <p>Player 1s HP = <%= $game.player_hp(1) %><br>
+
+       Player 2s HP = <%= $game.player_hp(2) %><br></p>
+
+    <% if $game.last_move != nil %>
+
+      <p><%= $game.player_name($game.current_player) %> <%= $game.last_move %></p>
+
+    <% end %>
+
+    <form action="/attack" method="post">
+
+      <div>
+
+        <input type="submit" value="Attack">
+
+      </div>
+
+    </form>
+
+  </body>
+
+</html>
