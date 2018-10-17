@@ -1,5 +1,6 @@
 body {
     font-size: 100%;
+
 }
 p {
     font-family: Sans-serif, Times, serif;
@@ -7,7 +8,7 @@ p {
 .content {
     max-width: 500px;
     margin: auto;
-    background: #fff;
+    background: blue;
     padding: 10px;
 }
 

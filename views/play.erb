@@ -1,26 +1,22 @@
-<!DOCTYPE html>
 
+
+<!DOCTYPE html>
 <html lang="en">
   <head>
-
     <meta charset="utf-8">
-
-    <title>Play Battle</title>
-    <link href="/styles/main.css" type="text/css" rel="stylesheet">
-
+    <title>Battle</title>
+    <link href="main.css" type="text/css" rel="stylesheet">
   </head>
-  <body>
 
-    <div class="content">
+  <body>
+    <div class="content" style="max-width: 500px;margin: auto;background: #DCDCDC;padding: 10px;">
       <main>
-        <h2><%= @game.player1.name %> vs. <%= @game.player2.name %> [ HP = <%= @game.player2.hp %> ]</h2>
+        <h2style="font-family: Sans-serif, Times, serif;"><%= @game.player1.name %> vs. <%= @game.player2.name %> [ HP = <%= @game.player2.hp %> ]</h2>
       </main>
       <aside>
         <a href="/attack"><button>Attack</button></a>
       </aside>
 
-
     </div>
-
   </body>
 </html>
