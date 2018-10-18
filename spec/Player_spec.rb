@@ -2,32 +2,20 @@ require 'player'
 
 describe Player do
 
-  subject(:player) { Player.new("Rosie") }
+  let(:player) { Player.new("Ellie") }
 
+  it "names the player" do
+    expect(player.name).to eq "Ellie"
+  end
+  
+  describe '#player_points' do
+    it "has 100 hit points" do
+      expect(player.hp).to eq 100
+    end
 
-  describe '#ran_damage' do
-    it 'hits random damage' do
-      allow(jim).to receive(:random_hit).and_return(5)
-      jim.damage_hp
-      expect(jim.hp).to eq 95
+    it "HP decreases by 20" do
+      player.receive_damage
+      expect(player.hp).to eq 80
     end
   end
-
-    describe '#ran_damage' do
-      it 'hits random damage' do
-        allow(jim).to receive(:random_hit).and_return(10)
-        jim.damage_hp
-        expect(jim.hp).to eq 90
-      end
-    end
-
-      describe '#ran_damage' do
-        it 'hits random damage' do
-          allow(jim).to receive(:random_hit).and_return(20)
-          jim.damage_hp
-          expect(jim.hp).to eq 80
-        end
-      end
-
-
 end

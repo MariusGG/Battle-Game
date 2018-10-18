@@ -17,9 +17,28 @@ describe Game do
       expect(game.player2.to eq player2
     end
   end
-  
-describe '#switch_players' do
-  it 'switch players' do
-    turn = player1
-    expect(game.switch).to eq player2
+
+  describe '#switch_players' do
+    it 'switch players' do
+      turn = player1
+      expect(game.switch).to eq player2
+    end
   end
+
+  describe '#gameover' do
+    it "end of the game for player2" do
+      player2.hit_points
+    	expect(game.attack).to be false
+    	expect(game.check_loser).to eq "Marius"
+    end
+  end
+
+  describe '#gameover' do
+    it "end of the game for player1" do
+      player1.hit_points
+    	expect(game.attack).to be false
+    	expect(game.check_loser).to eq "Ellie"
+    end
+  end
+
+end
