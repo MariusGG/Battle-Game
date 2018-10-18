@@ -1,40 +1,50 @@
 
 Capybara.app = Battle
 
-feature "Start of the game" do
-  scenario "two players can enter their names" do
+feature "player puts name" do
+  scenario "Players name" do
     sign_in_and_play
-    expect(page).to have_content "Rosie vs Jim"
-  end
-
-  scenario "I can see player 2s hit points" do
-    sign_in_and_play
-    expect(page).to have_content "HP"
+    expect(page).to have_text("Ellie VS. Marius")
   end
 end
 
-feature "Attacking player2" do
-  scenario "when I attack I get confirmation of the attack" do
+feature 'attacking' do
+  scenario "player1 attacks" do
     sign_in_and_play
-    click_button('Attack')
-    expect(page).to have_content "Jim HP = 95"
+    click_button("Attack player2")
+    expect(page).to have_text "player1 succesfully attacks player2"
   end
 end
 
-feature "Switching turns" do
-  scenario "after player 1 attacks player 2, player 2 can attack" do
+describe "switch turns" do
+  scenario "players taking turns to attack" do
     sign_in_and_play
-    2.times { click_button('Attack') }
-    expect(page).to have_content "Rosie's turn: make a move"
-    expect(page).to have_content "Rosie's HP = 90"
+    expect(page).to have_text("It's now player1's turn.")
   end
 
-  feature "winner_is" do
-    scenario "So I can Lose a game of Battle" do
-      sign_in_and_play
-      2.times { click_button('Attack') }
-      expect(page).to have_content "Rosie's turn: make a move"
-      expect(page).to have_content "Rosie's HP = 90"
-    end
+  scenario "after player 1 attacks, now player2's turn" do
+    sign_in_and_play
+    click_button("Attack player2")
+    expect(page).to have_text("It's now player2's turn.")
   end
+end
+
+feature 'show players have HP:' do
+  scenario "player 2 has 100HP" do
+    sign_in_and_play
+    expect(page).to have_text('Marius\'s HP : 100')
+  end
+
+  scenario "player 2's hit points decrease by 20" do
+    sign_in_and_play
+    click_button('Attack Player2')
+    expect(page).to have_text('Marius\'s HP : 80')
+  end
+end
+
+feature "loser is?" do
+	scenario "player 2 loses" do
+	sign_in_and_play
+	expect(page).to have_text("Marius's HP : 0")
+	end
 end
