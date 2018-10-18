@@ -13,16 +13,11 @@
       <form class="screen1"action="/names" method="post">
         <fieldset class="screen2">
 
-
-          <img class="charatcters" src="./mario.png" alt="player1 charatcter"><br/>
-          <label for="player1">player1 name:</label><br/>
-          <input type="text" name="player1_name"><br/><br/>
-
-          <img class="charatcters" src="./luigi.png" alt="player2 charatcter"><br/>
-          <label for="player2">player2 name:</label><br/>
-          <input type="text" name="player2_name"><br/>
-          <input class="submit_players" type="submit" value="Submit Players">
-
+          <form action="/names" method="post">
+            <p>Player 1<input type="text" name="player1_name"></p>
+            <p>Player 2 <input type="text" name="player2_name"></p>
+            <input type="submit" value="Ready to Rumble">
+          </form>
 
       </fieldset>
       </form>

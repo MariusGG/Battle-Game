@@ -1,5 +1,5 @@
 class Player
-  
+
   attr_reader :name, :hp
 
   def initialize(name, hp = 100)
@@ -8,7 +8,7 @@ class Player
   end
 
   def receive_damage
-    @hit_points -= 20
+    @hp -= 20
   end
 
 end

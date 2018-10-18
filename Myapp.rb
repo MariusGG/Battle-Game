@@ -1,29 +1,35 @@
 require 'sinatra/base'
-require_relative './lib/player'
-require_relative './lib/game'
+require './lib/player'
+require './lib/game'
 
 class Battle < Sinatra::Base
-
   enable :sessions
+
+
+  before { @game = Game.game }
 
   get '/' do
     erb(:index)
   end
 
   post '/names' do
-    $game = Game.create(params[:player1_name], params[:player2_name])
+    player_1 = Player.new(params[:player_1])
+    player_2 = Player.new(params[:player_2])
+    Game.create(player_1, player_2)
     redirect '/play'
-  end
-
-  get '/play' do
-    $game == nil ? (redirect '/') : erb(:play)
   end
 
   post '/attack' do
-    $game.attack
-    redirect '/play'
+    redirect '/attacked'
+  end
+
+  get '/attacked' do
+    erb(:attack)
+  end
+
+  get '/play' do
+    erb(:play)
   end
 
   run! if app_file == $0
-
 end
