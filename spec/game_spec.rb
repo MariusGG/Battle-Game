@@ -1,23 +1,25 @@
 require 'game'
 
 describe Game do
-
-  let(:player) { double :player, name: "Rosie"}
-  let(:player_class) { double :double, new: player }
+  let(:game) { Game.new(player1, player2) }
+  let(:player1) { double (:player1, receive_damage: false, hp: 0, name: "Ellie" )}
+  let(:player1) { double :player2, receive_damage: false, hp: 0, name: "Marius" ) }
 
   subject { described_class.create("Rosie", "Jim", player_class) }
 
-  describe "#get_player_name" do
+  describe '#get_player_name' do
     it "returns player name" do
-      expect(subject.player_name(1)).to eq "Rosie"
+      expect(game.player1.to eq player1
     end
   end
-
-  describe "#attack" do
-    it "#damage_hp on player" do
-      expect(player).to receive(:damage_hp)
-      subject.attack
+  describe '#get_player_name'do
+    it "returns player name" do
+      expect(game.player2.to eq player2
     end
   end
-
-end
+  
+describe '#switch_players' do
+  it 'switch players' do
+    turn = player1
+    expect(game.switch).to eq player2
+  end

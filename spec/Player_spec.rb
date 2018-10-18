@@ -2,8 +2,7 @@ require 'player'
 
 describe Player do
 
-  subject(:rosie) { described_class.new("Rosie") }
-  subject(:jim) { described_class.new("Jim") }
+  subject(:player) { Player.new("Rosie") }
 
 
   describe '#ran_damage' do
