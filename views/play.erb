@@ -20,7 +20,7 @@
             <% if $game.move_last != nil %>
             <p><%= $game.player_name($game.current_player) %> <%= $game.move_last %></p>
             <% end %>
-            <form action="/attack" method="post">
+            <form class="act_first_but" action="/attack" method="post">
               <div>
                 <input id="attack_but" type="submit" value="Attack">
               </div>

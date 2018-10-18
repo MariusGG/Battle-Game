@@ -1,17 +1,14 @@
 class Player
-  attr_reader :hp, :name
+  
+  attr_reader :name, :hp
 
-  def initialize(name)
+  def initialize(name, hp = 100)
     @name = name
-    @hp = 100
+    @hp = hp
   end
 
-  def damage_hp
-    @hp -=  random_hit
-  end
-
-  def random_hit
-    rand(5 .. 20)
+  def receive_damage
+    @hit_points -= 20
   end
 
 end

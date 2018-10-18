@@ -1,36 +1,40 @@
 class Game
 
-  attr_reader :current_player, :move_last
+  attr_reader :player1, :player2, :turn
 
-  def self.create(player1_name, player2_name, player_class = Player)
-    players = [player_class.new(player1_name), player_class.new(player2_name)]
-    new(players)
+  def initialize(player1, player2)
+    @player1 = player1
+    @player2 = player2
+    @turn = @player1
   end
 
-  def initialize(player)
-    @players = player
-    @current_player = 1
-    @move_last = nil
+   def self.create(player1, player2)
+    @game = Game.new(player1,player2)
   end
 
-  def player_name(player_number)
-    player_number == 1 ? @players.first.name : @players.last.name
+  def self.instance
+    @game
   end
 
-  def player_hp(player_number)
-    player_number == 1 ? @players.first.hp : @players.last.hp
+  def switch
+    @turn == player1 ? @turn = player2 : @turn = player1
   end
 
   def attack
-    current_player == 1 ? @players.last.damage_hp : @players.first.damage_hp
-    switch_player
-    @move_last = "Damage to health!"
+    @turn == player1 ? player2.receive_damage : player1.receive_damage
   end
 
-  private
+  def gameover?
+  	true if check_loser
+  	false
+  end
 
-  def switch_player
-    @current_player == 1 ? @current_player= 2 : @current_player = 1
+  def check_loser
+  	if player2.hp == 0
+  		player2.name
+  	elsif player1.hp == 0
+  		player1.name
+  	end
   end
 
 end
