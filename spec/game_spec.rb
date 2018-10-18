@@ -9,7 +9,7 @@ describe Game do
 
   describe "#get_player_name" do
     it "returns player name" do
-      expect(subject.player_name(1)).to eq "Jim"
+      expect(subject.player_name(1)).to eq "Rosie"
     end
   end
 
@@ -17,14 +17,6 @@ describe Game do
     it "#damage_hp on player" do
       expect(player).to receive(:damage_hp)
       subject.attack
-    end
-  end
-
-  describe "#switch_turns" do
-    it "switches turn after move" do
-      allow(player).to receive(:damage_hp)
-      subject.attack
-      expect(subject.current_player).to eq 20
     end
   end
 

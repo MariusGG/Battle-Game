@@ -7,6 +7,11 @@ class Player
   end
 
   def damage_hp
-    @hp -= 20
+    @hp -=  random_hit
   end
+
+  def random_hit
+    rand(5 .. 20)
+  end
+
 end

@@ -25,7 +25,7 @@ feature "Switching turns" do
   scenario "after player 1 attacks player 2, player 2 can attack" do
     sign_in_and_play
     2.times { click_button('Attack') }
-    expect(page).to have_content "Name1's turn: make a move"
-    expect(page).to have_content "Player 1s HP = 50"
+    expect(page).to have_content "player1's turn: make a move"
+    expect(page).to have_content "Player1s HP = 90"
   end
 end
