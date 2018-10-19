@@ -1,40 +1,34 @@
 class Game
+  attr_reader :attacker, :receiver, :player1, :player2, :message
 
-  attr_reader :player1, :player2, :turn
-
-  def initialize(player1, player2)
-    @player1 = player1
-    @player2 = player2
-    @turn = @player1
+  def initialize(player_1, player_2)
+    @player1 = player_1
+    @player2 = player_2
+    @attacker = player_1
+    @receiver = player_2
   end
 
-   def self.create(player1, player2)
-    @game = Game.new(player1,player2)
-  end
-
-  def self.instance
+  def self.game
     @game
   end
 
-  def switch
-    @turn == player1 ? @turn = player2 : @turn = player1
+  def self.create(player1, player2)
+    @game = Game.new(player1, player2)
   end
 
   def attack
-    @turn == player1 ? player2.receive_damage : player1.receive_damage
+    receiver.receive_damage
   end
 
-  def gameover?
-  	true if check_loser
-  	false
+  def lost?
+    receiver.hp == 0 ? true : false
   end
 
-  def check_loser
-  	if player2.hp == 0
-  		player2.name
-  	elsif player1.hp == 0
-  		player1.name
-  	end
+  def switch_player
+    self.attacker, self.receiver = receiver, attacker
   end
+
+  # private
+  # attr_writer :attacker, :receiver, :message
 
 end

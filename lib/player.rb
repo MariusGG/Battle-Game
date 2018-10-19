@@ -1,14 +1,20 @@
 class Player
-
+  DEFAULT_HP = 60
   attr_reader :name, :hp
 
-  def initialize(name, hp = 100)
+  def initialize(name)
     @name = name
-    @hp = hp
+    @hp = DEFAULT_HP
+  end
+
+  def hp
+    @hp < 0 ? 0 : @hp
   end
 
   def receive_damage
-    @hp -= 20
+    self.hp -= rand(1..3)*10
   end
+  # private
+  # attr_writer :hp
 
 end
