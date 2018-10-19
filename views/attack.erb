@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Battle</title>
+    <link href="main.css" type="text/css" rel="stylesheet">
+  </head>
+
+  <body>
+    <div class="content">
+
+      <form class="screen1"action="/names" method="post">
+        <fieldset class="screen2">
+
+          <h3><%= "#{@game.player1.name} vs. #{@game.player2.name}" %></h3>
+          <br>
+          <% @game.attack %>
+          <%= "#{@game.player1.name} #{@game.player1.hp}/60hp" %>
+          <br>
+          <%= "#{@game.player2.name} #{@game.player2.hp}/60hp" %>
+          <br>
+          <br>
+          <%= "#{@game.attacker.name} successfully attacked #{@game.receiver.name}" %>
+          <br>
+          <br>
+          <% unless @game.lost? %>
+            <form action="/attack" method="post">
+              <label for="attacker_attack_1">
+                Attack:
+                <input type="submit" value="Fire Attack">
+              </label>
+            </form>
+            <% @game.switch_player %>
+          <% else %>
+            <%= "#{@game.receiver.name} has lost the game." %>
+          <% end %>
+
+        </fieldset>
+      </form>
+
+    </div>
+  </body>
+</html>
