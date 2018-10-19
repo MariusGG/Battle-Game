@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -9,27 +7,27 @@
   </head>
 
   <body>
-    <div class="content" >
+    <div class="content">
       <main class="screen1">
         <fieldset class="screen2">
-          <h1>Battle <span>MAKERS</span></h1>
-            <h3><%= "#{@game.player1.name} vs. #{@game.player2.name}" %></h3>
-            <br>
-            <%= "#{@game.player1.name} #{@game.player1.hp}/60hp" %>
-            <br>
-            <br>
-            <%= "#{@game.player2.name} #{@game.player2.hp}/60hp" %>
-            <br>
-            <br>
-            <form action="/attack" method="post">
-              <label for="attacker_attack_1">
-                Attack:
-                <input type="submit" value="Fire Attack">
-              </label>
-            </form>
-            <br>
-          </fieldset>
-        </main>
+          <h3><%= "#{@game.player1.name} vs. #{@game.player2.name}" %></h3>
+          <img src="player1.gif" style="width: 85px;height: 105px;">
+          <%= "#{@game.player1.name} #{@game.player1.hp}/60hp" %>
+          <br>
+
+          <img src="player2.1.gif" style="width: 70px;height: 79px;">
+          <%= "#{@game.player2.name} #{@game.player2.hp}/60hp" %>
+          <br>
+          <br/>
+          <form action="/attack" method="post">
+            <label for="attacker_attack_1">
+              Attack:
+              <input type="submit" value="Random Attack">
+            </label>
+          </form>
+          <br>
+        </fieldset>
+      </main>
     </div>
   </body>
 </html>

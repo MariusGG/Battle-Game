@@ -1,51 +1,49 @@
-require 'spec_helper'
 
-Capybara.app = Battle
 
-feature "player puts name" do
-  scenario "Players name" do
+feature 'player names' do
+   scenario 'can take form input and render it onscreen' do
     sign_in_and_play
-    expect(page).to have_text("Ellie VS. Marius")
+    expect(page).to have_content('Ellie vs. Marius')
   end
 end
 
-feature 'attacking' do
-  scenario "player1 attacks" do
-    sign_in_and_play
-    click_button("Attack player2")
-    expect(page).to have_text "player1 succesfully attacks player2"
-  end
-end
 
-describe "switch turns" do
-  scenario "players taking turns to attack" do
-    sign_in_and_play
-    expect(page).to have_text("It's now player1's turn.")
-  end
+feature '#switch_turns' do
+  scenario 'switching turns between players' do
+     sign_in_and_play
+     click_on('Random Attack')
+     click_on('Random Attack')
+     expect(page).to have_content("Ellie #{Game.game.player1.hp}/60hp")
+   end
+ end
 
-  scenario "after player 1 attacks, now player2's turn" do
-    sign_in_and_play
-    click_button("Attack player2")
-    expect(page).to have_text("It's now player2's turn.")
-  end
-end
+ feature 'attacking' do
+   scenario 'can attack player' do
+     sign_in_and_play
+     click_on('Random Attack')
+     expect(page).to have_content('Ellie attacked Marius')
+   end
 
-feature 'show players have HP:' do
-  scenario "player 2 has 100HP" do
-    sign_in_and_play
-    expect(page).to have_text('Marius\'s HP : 100')
-  end
+ scenario 'reduces points of the second player' do
+     sign_in_and_play
+     click_on('Random Attack')
+     expect(page).to have_content("Marius #{Game.game.player2.hp}/60hp")
+   end
+ end
 
-  scenario "player 2's hit points decrease by 20" do
-    sign_in_and_play
-    click_button('Attack Player2')
-    expect(page).to have_text('Marius\'s HP : 80')
-  end
-end
+ feature 'hit points' do
+   scenario 'can display player hp' do
+     sign_in_and_play
+     expect(page).to have_content("Marius	60/60hp)"
+   end
+ end
 
-feature "loser is?" do
-	scenario "player 2 loses" do
-	sign_in_and_play
-	expect(page).to have_text("Marius's HP : 0")
-	end
-end
+ feature 'losing' do
+   scenario 'player loses when hp reaches 0' do
+     sign_in_and_play
+     until Game.game.lost? do
+       click_on("Random Attack")
+     end
+     expect(page).to have_content("has lost the game.")
+   end
+ end

@@ -1,3 +1,4 @@
+
 class Game
   attr_reader :attacker, :receiver, :player1, :player2, :message
 
@@ -17,7 +18,7 @@ class Game
   end
 
   def attack
-    receiver.receive_damage
+    receiver.damage_hit
   end
 
   def lost?
@@ -28,7 +29,7 @@ class Game
     self.attacker, self.receiver = receiver, attacker
   end
 
-  # private
-  # attr_writer :attacker, :receiver, :message
+  private
+  attr_writer :attacker, :receiver, :message
 
 end

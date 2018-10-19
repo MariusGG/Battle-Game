@@ -1,52 +1,53 @@
 require 'game'
 
 describe Game do
-  let(:game) { Game.new(player_1, player_2) }
-  let(:player1) { double :player1, receive_damage: true, hp: 0, name: "Ellie" }
-  let(:player1) { double :player2, receive_damage: true, hp: 0, name: "Marius"  }
+
+  let(:player_1) { double :player_1, :damage_hit true, :hp true }
+  let(:player_2) { double :player_2, :damage_hit true, :hp true }
+  subject(:game) { described_class.new(player_1, player_2)}
+
+
+    describe '#self.game' do
+      it "is responded to by game" do
+        expect(Game).to respond_to :game
+      end
+    end
+
+    describe '#self.create' do
+      it "sets self.game to an instance of game" do
+        Game.create(player_1, player_2)
+        expect(Game.game).to be_an_instance_of Game
+      end
+
+      it "sets self.game to a new game created with the parameters passed to it" do
+        Game.create(player_1, player_2)
+        expect(Game.game).to have_attributes(:player1 => player_1, :player2 => player_2)
+      end
+    end
 
   describe '#initialize' do
-    it "requires two arguments that are saved to player instances" do
+    it "two arguments that are saved to player instances" do
       game = Game.new(player_1, player_2)
       expect(game).to have_attributes(player1: player_1, player2: player_2, attacker: player_1, receiver: player_2)
     end
   end
-context 'new_game' do
-
-  describe '#self.create' do
-    it "sets self.game to an instance of game" do
-      Game.create(player_1, player_2)
-      expect(Game.game).to be_an_instance_of Game
-    end
-  end
-
-  describe '#self.game' do
-    it "start game" do
-      expect(Game).to respond_to :game
-    end
-  end
-
-  it "sets self.game to a new game created with the parameters passed to it" do
-    Game.create(player_1, player_2)
-    expect(Game.game).to have_attributes(:player1 => player_1, :player2 => player_2)
-  end
 
   describe '#attack' do
-    it "player2 gets hit" do
-      expect(player_2).to receive(:receive_damage)
+    it "returns #damage_hit message to the player" do
+      expect(player_2).to receive(:damage_hit)
       game.attack
     end
   end
 
   describe '#switch_player' do
-    it "players taking turns in game" do
+    it "switching between players" do
       game.switch_player
       expect(game.attacker).to eq player_2
     end
   end
 
   describe '#lost?' do
-    it "decided the loser of the battle" do
+    it "checks the receiver's hp" do
       expect(player_2).to receive(:hp)
       game.lost?
     end
@@ -56,5 +57,6 @@ context 'new_game' do
       expect(game.lost?).to eq true
     end
   end
+
 
 end

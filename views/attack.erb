@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -10,34 +9,35 @@
   <body>
     <div class="content">
 
-      <form class="screen1"action="/names" method="post">
+      <main class="screen1">
         <fieldset class="screen2">
 
-          <h3><%= "#{@game.player1.name} vs. #{@game.player2.name}" %></h3>
+          <h3><img src="player1.gif" style="width: 85px;height: 105px;"><%= "#{@game.player1.name} vs. #{@game.player2.name}" %><img src="player2.1.gif" style="width: 70px;height: 79px;"></h3>
           <br>
           <% @game.attack %>
           <%= "#{@game.player1.name} #{@game.player1.hp}/60hp" %>
           <br>
+          <br>
+          <br>
           <%= "#{@game.player2.name} #{@game.player2.hp}/60hp" %>
           <br>
           <br>
-          <%= "#{@game.attacker.name} successfully attacked #{@game.receiver.name}" %>
+          <%= "#{@game.attacker.name} attacked #{@game.receiver.name}" %>
           <br>
           <br>
           <% unless @game.lost? %>
-            <form action="/attack" method="post">
-              <label for="attacker_attack_1">
-                Attack:
-                <input type="submit" value="Fire Attack">
-              </label>
-            </form>
-            <% @game.switch_player %>
+          <form action="/attack" method="post">
+            <label for="attacker_attack_1">
+              Attack:
+              <input type="submit" value="Random Attack">
+            </label>
+          </form>
+          <% @game.switch_player %>
           <% else %>
-            <%= "#{@game.receiver.name} has lost the game." %>
+          <h2 style="color: #b50000;"><%= "#{@game.receiver.name} has lost the game." %></h2>
           <% end %>
-
         </fieldset>
-      </form>
+      </main>
 
     </div>
   </body>
